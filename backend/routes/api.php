@@ -24,3 +24,4 @@ Route::get('getUsers', 'UserController@getUsers');
 
 //================= HTTP POST =================
 Route::post('addReview', 'ReviewController@addReview');
+Route::get('searchReviews/{id}', 'ReviewController@searchReviews');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Review;
+use App\User;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
@@ -19,5 +20,9 @@ class ReviewController extends Controller
 
     public function getReviews() {
         return Review::get();
+    }
+
+    public function searchReviews($id) {
+        return Review::where('user_id', '=', $id)->orderBy('rating', 'desc')->get();
     }
 }

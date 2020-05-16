@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User } from '../components/entity/user';
 import { AuthToken } from '../components/entity/auth-token';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class AuthService implements OnInit {
   private isLogged = new BehaviorSubject<boolean>(false);
   $isLogged = this.isLogged.asObservable();
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient, private router: Router) { 
     this.updateLogged();
   }
 
@@ -43,6 +44,7 @@ export class AuthService implements OnInit {
     if (this.userIsLogged) {
       sessionStorage.removeItem('token');
       this.updateLogged();
+      this.router.navigate(['/login']);
     }
   }
 

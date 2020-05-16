@@ -1,0 +1,20 @@
+.user-filters {
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.filter-title {
+    font-family: "Times New Roman", Times, serif;
+}
+
+.example-card {
+    max-width: 70%;
+  }
+
+  .card {
+    box-shadow: 0 2px 1px -1px #673ab7, 0 1px 1px 0 #673ab7, 0 1px 3px 0 #673ab7 !important;
+  }
+
+  .section-title {
+    text-align: center;
+  }
