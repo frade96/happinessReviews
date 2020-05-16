@@ -22,6 +22,10 @@ export class AppComponent implements OnInit {
     })
   }
 
+  logout() {
+    this.authService.logout();
+  }
+
   openLogin(): void {
     const dialogRef = this.dialog.open(DialogLoginComponent, {
       panelClass: 'login_dialog'
@@ -29,12 +33,8 @@ export class AppComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.authService.updateLogged(true);
+        this.authService.updateLogged();
       }
     });
-  }
-
-  openLogout() {
-    this.subscription.unsubscribe();
   }
 }

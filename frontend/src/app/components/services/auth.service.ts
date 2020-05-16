@@ -1,25 +1,49 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User } from '../entity/user';
+import { AuthToken } from '../entity/auth-token';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService implements OnInit {
 
   private isLogged = new BehaviorSubject<boolean>(false);
   $isLogged = this.isLogged.asObservable();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    this.updateLogged();
+  }
 
-  public updateLogged(value: boolean) {
-    this.isLogged.next(value);
+  ngOnInit() {
+  }
+
+  public updateLogged() {
+    if (sessionStorage.getItem('token')) {
+      this.isLogged.next(true);
+      return;
+    }
+
+    this.isLogged.next(false);
+  }
+
+  userIsLogged() {
+    if (sessionStorage.getItem('token'))
+      return true;
+    return false;
   }
 
   login(username: string) {
-    return this.http.post<User>(environment.url + 'login', {email: username});
+    return this.http.post<AuthToken>(environment.url + 'login', {email: username});
+  }
+  
+  logout() {
+    if (this.userIsLogged) {
+      sessionStorage.removeItem('token');
+      this.updateLogged();
+    }
   }
 
   getUsers() {

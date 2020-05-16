@@ -36,3 +36,11 @@ body { margin: 0; font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif; }
 .ma-top-20 {
     margin-top: 20px !important;
 }
+
+.auth-email-error .mat-form-field .mat-form-field-wrapper .mat-form-field-underline{
+    background: red;
+} 
+
+.auth-email-error .mat-form-field mat-hint {
+    color: red;
+}
