@@ -44,4 +44,8 @@ export class AppComponent implements OnInit {
   goToReviewer() {
     this.router.navigate(['/viewer']);
   }
+
+  goToHome() {
+    this.router.navigate(['/home']);
+  }
 }

@@ -15,6 +15,7 @@ import { HttpRequestInterceptor } from './configs/HttpRequestInterceptor';
 import { ViewerComponent } from './components/viewer/viewer.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,9 @@ import { HomeComponent } from './components/home/home.component';
     // import HttpClientModule after BrowserModule.
     HttpClientModule,
     MatSelectModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true }

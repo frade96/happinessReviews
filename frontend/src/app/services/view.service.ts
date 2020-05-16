@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { ReviewRequest } from '../components/entity/review-request';
 import { Constants } from '../configs/constants';
 import { RegularExpressionUtils } from '../configs/RegularExpressionUtils';
+import { Review } from '../components/entity/review';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,10 @@ export class ViewService {
 
   public saveReview(request: ReviewRequest) {
     return this.http.post<void>(environment.url + 'api/addReview', request);
+  }
+
+  public searchViews(userId: number) {
+    return this.http.get<Array<Review>>(environment.url + 'api/searchReviews/' + userId);
   }
 
   public checkFields(validator: {}, reviewRequest: ReviewRequest): {} {
