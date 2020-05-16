@@ -10,6 +10,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule, MatCardModule, MatInputModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { HttpClient, HttpClientModule, HttpClientXsrfModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpRequestInterceptor } from './components/configs/HttpRequestInterceptor';
 
 @NgModule({
   declarations: [
@@ -28,9 +30,12 @@ import { NgxSpinnerModule } from "ngx-spinner";
     MatInputModule,
     FormsModule,
     MatDialogModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,BrowserModule,
+    // import HttpClientModule after BrowserModule.
+    HttpClientModule
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true }
   ],
   entryComponents: [
     DialogLoginComponent
