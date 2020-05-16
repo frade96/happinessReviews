@@ -48,4 +48,8 @@ export class AppComponent implements OnInit {
   goToHome() {
     this.router.navigate(['/home']);
   }
+
+  goToCharts() {
+    this.router.navigate(['/charts']);
+  }
 }

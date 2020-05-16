@@ -21,7 +21,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //================= HTTP GET =================
 
 Route::get('getUsers', 'UserController@getUsers');
+Route::get('searchReviews/{id}', 'ReviewController@searchReviews');
+Route::get('rankedList', 'ReviewController@rankedList');
+Route::get('getDataToChart', 'ReviewController@getDataToChart');
 
 //================= HTTP POST =================
 Route::post('addReview', 'ReviewController@addReview');
-Route::get('searchReviews/{id}', 'ReviewController@searchReviews');
