@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogLoginComponent } from './components/dialog-login/dialog-login.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule, MatCardModule, MatInputModule, MatSelectModule, MatSnackBarModule } from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule, MatCardModule, MatInputModule, MatSelectModule, MatSnackBarModule, MatExpansionModule, MatPaginatorModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { HttpClient, HttpClientModule, HttpClientXsrfModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -16,6 +16,12 @@ import { ViewerComponent } from './components/viewer/viewer.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ChartsComponent } from './components/charts/charts.component';
+import { ChartsModule, SparklineModule } from '@progress/kendo-angular-charts';
+import 'hammerjs';
+
+
+
 
 @NgModule({
   declarations: [
@@ -24,6 +30,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ViewerComponent,
     LoginComponent,
     HomeComponent,
+    ChartsComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +50,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatSelectModule,
     MatSnackBarModule,
     BrowserAnimationsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatExpansionModule,
+    ChartsModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    SparklineModule,
+    MatPaginatorModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true }

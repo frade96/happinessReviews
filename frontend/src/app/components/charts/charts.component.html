@@ -1,0 +1,43 @@
+<div fxLayout="row" class="ma-top-50">
+    <div fxFlex="30" fxFlexOffset="2" class="mat-elevation-z10" style="padding: 50px">
+        <div class="list-title">
+            <h1>Ranked List</h1>
+        </div>
+        <mat-card class="example-card ma-bottom-50 card" *ngFor="let rank of rankedListToShow">
+          <mat-card-header fxLayout="column">
+            <mat-card-title fxLayout="row">
+              <div fxFlex="40">
+                  {{ rank.name }}
+                </div>
+              <div fxFlex="50" fxFlexOffset="10">
+                <div class="ta-left">
+                    <mat-icon *ngFor="let star of stars; let i = index" class="rew-stars star-colored">
+                        {{ i+1 <= rank.rating ? star.colored : star.notColored }}
+                    </mat-icon>
+                </div>
+              </div>
+            </mat-card-title>
+            <mat-card-subtitle> {{ rank.email }} </mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
+        <mat-paginator (page)="paginator($event)" [length]="rankedList.length" pageSize="3">
+        </mat-paginator>
+      </div>
+      <div fxFlex="64" fxFlexOffset="2" class="mat-elevation-z10" style="padding: 50px">
+        <div class="list-title">
+            <h1>Rating Chart</h1>
+        </div>
+        <kendo-chart
+          [categoryAxis]="{ categories: categories, max: 15, labels: { rotation: 'auto'} }"
+          renderAs="canvas"
+          [pannable]="{ lock: 'y' }"
+          [zoomable]="{ mousewheel: { lock: 'y' } }">
+            <kendo-chart-legend position="bottom" orientation="horizontal"></kendo-chart-legend>
+            <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+            <kendo-chart-series>
+                <kendo-chart-series-item type="line" [data]="ratingToChart" color="rgb(103, 58, 183)" [name]="dataChartName" >
+                </kendo-chart-series-item>
+            </kendo-chart-series>
+        </kendo-chart>
+      </div>
+</div>
