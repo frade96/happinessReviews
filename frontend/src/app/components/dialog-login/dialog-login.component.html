@@ -7,9 +7,12 @@
       <table class="example-full-width ma-top-20" cellspacing="0">
         <tr>
           <td>
+            <div [class]="validator[constants.authentication.email] ? 'auth-email-error' : ''">
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Username" [(ngModel)]="username" name="username">
+              <input matInput placeholder="Email" [(ngModel)]="username" name="username">
+              <mat-hint *ngIf="validator[constants.authentication.email] ? 'auth-email-error' : ''">{{validator[constants.authentication.email]}}</mat-hint>
             </mat-form-field>
+          </div>
           </td>
         </tr>
       </table>

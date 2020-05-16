@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::redirect('/', '/app');
-Route::get('/getUsers', 'UserController@getUsers');
-Route::post('/login', 'UserController@login');
 
+Route::post('/login', 'UserController@login');
+Route::get('/getReviews', 'ReviewControlelr@getReviews');

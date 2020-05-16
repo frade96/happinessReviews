@@ -1,0 +1,40 @@
+<section class="rev mat-elevation-z8">
+  <div class="rew-title">
+    Make Review
+  </div>
+  <form class="rew-form">
+    <div [class]="validator[constants.review.idUser] ? 'input-error' : ''">
+    <mat-form-field appearance="outline" class="example-full-width">
+      <mat-label>User to Reviews</mat-label>
+      <mat-select #fontSize [(value)]="selectedUser">
+        <mat-option [value]="user.id" *ngFor="let user of usersOptions">{{user.name}} {{user.surname}}</mat-option>
+      </mat-select>
+      <mat-hint style="color: red" *ngIf="validator[constants.review.idUser]">{{validator[constants.review.idUser]}}</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div [class]="validator[constants.review.review] ? 'input-error' : ''">
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Reviews</mat-label>
+      <textarea (keypress)="isText($event)" matInput rows="12" [(ngModel)]="review" name="review"></textarea>
+      <mat-hint style="color: red" *ngIf="validator[constants.review.review]">{{validator[constants.review.review]}}</mat-hint>
+    </mat-form-field>
+  </div>
+
+    <div class="rew-footer">
+      <div class="ta-left">
+        <mat-icon *ngFor="let star of stars" class="rew-stars"
+          [ngClass]="colored[star.id] ? 'star-colored rew-stars' : 'rew-stars star-not-colored'"
+          (click)="selectStar(star.id)">
+          {{ colored[star.id] ? star.colored : star.notColored }}
+        </mat-icon>
+      </div>
+
+      <div class="ta-right">
+        <button mat-raised-button color="primary" (click)="addReview()">Review</button>
+      </div>
+    </div>
+
+  </form>
+
+</section>

@@ -17,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//================= HTTP GET =================
+
+Route::get('getUsers', 'UserController@getUsers');
+
+//================= HTTP POST =================
+Route::post('addReview', 'ReviewController@addReview');

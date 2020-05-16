@@ -7,16 +7,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogLoginComponent } from './components/dialog-login/dialog-login.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule, MatCardModule, MatInputModule } from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule, MatCardModule, MatInputModule, MatSelectModule, MatSnackBarModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { HttpClient, HttpClientModule, HttpClientXsrfModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpRequestInterceptor } from './components/configs/HttpRequestInterceptor';
+import { HttpRequestInterceptor } from './configs/HttpRequestInterceptor';
+import { ViewerComponent } from './components/viewer/viewer.component';
+import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DialogLoginComponent
+    DialogLoginComponent,
+    ViewerComponent,
+    LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +38,9 @@ import { HttpRequestInterceptor } from './components/configs/HttpRequestIntercep
     MatDialogModule,
     NgxSpinnerModule,BrowserModule,
     // import HttpClientModule after BrowserModule.
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule,
+    MatSnackBarModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true }
