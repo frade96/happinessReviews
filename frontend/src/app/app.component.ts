@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { DialogLoginComponent } from './components/dialog-login/dialog-login.component';
-import { AuthService } from './components/services/auth.service';
+import { AuthService } from './services/auth.service';
 import { Subscription } from 'rxjs';
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,9 @@ export class AppComponent implements OnInit {
   isLogged: boolean = false;
   private subscription: Subscription = new Subscription();
 
-  constructor(private dialog: MatDialog, private authService: AuthService) {}
+  constructor(private dialog: MatDialog, 
+    private authService: AuthService,
+    private router: Router) {}
 
   ngOnInit() {
     this.subscription = this.authService.$isLogged.subscribe(item => {
@@ -36,5 +39,9 @@ export class AppComponent implements OnInit {
         this.authService.updateLogged();
       }
     });
+  }
+
+  goToReviewer() {
+    this.router.navigate(['/viewer']);
   }
 }

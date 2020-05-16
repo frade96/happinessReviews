@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Services\TokenUtils;
 use Closure;
 
 class AuthKey
@@ -16,7 +17,8 @@ class AuthKey
     public function handle($request, Closure $next)
     {
         $token = $request->header('APP-KEY');
-        if ($token != 'TOKEN') {
+        $validatedToken = TokenUtils::validateToken($token);
+        if (!$validatedToken) {
             return response()->json([
                 'message' => 'Non autorizzato'
             ], 401);

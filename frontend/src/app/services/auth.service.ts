@@ -2,8 +2,8 @@ import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { User } from '../entity/user';
-import { AuthToken } from '../entity/auth-token';
+import { User } from '../components/entity/user';
+import { AuthToken } from '../components/entity/auth-token';
 
 @Injectable({
   providedIn: 'root'

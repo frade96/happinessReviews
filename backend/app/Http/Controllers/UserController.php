@@ -10,24 +10,25 @@ use Illuminate\Support\Facades\Crypt;
 
 class UserController extends Controller
 {
-    public function getUsers() {
-        return User::get();
+    public function getUsers(Request $req) {
+
+        $email = TokenUtils::getEmail($req->header('APP-KEY'));
+        return User::where('email', '!=', $email)->get();
     }
 
     public function login(Request $req) {
-        $email = User::where('email', $req->email)->first();
+        $user = User::where('email', $req->email)->first();
 
-        if ($email == null)
+        if ($user == null)
             return response()->json([
                 'message' => 'Utente non trovato',
                 'field' => 'authenticationEmail'
             ], 404);
 
-        $email = $email->get('email')->first();
-        $token = TokenUtils::generateToken($email->email);
-
+        $email = $user->email;
         return response()->json([
-            'token' => Crypt::encryptString($token)
+            'token' => TokenUtils::generateToken($email)
         ], 200);
+
     }
 }

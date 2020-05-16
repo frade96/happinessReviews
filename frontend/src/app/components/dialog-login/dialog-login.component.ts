@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { AuthService } from '../services/auth.service';
-import { RegularExpressionUtils } from '../configs/RegularExpressionUtils';
-import { Constants } from '../configs/constants';
+import { AuthService } from '../../services/auth.service';
+import { RegularExpressionUtils } from '../../configs/RegularExpressionUtils';
+import { Constants } from '../../configs/constants';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dialog-login',
@@ -20,7 +21,8 @@ export class DialogLoginComponent implements OnInit {
 
   constructor(private dialogRef: MatDialogRef<DialogLoginComponent>,
     private spinner: NgxSpinnerService,
-    public authService: AuthService) { }
+    public authService: AuthService,
+    private router: Router) { }
 
   ngOnInit() {
   }
@@ -35,6 +37,7 @@ export class DialogLoginComponent implements OnInit {
         this.spinner.hide()
         sessionStorage.setItem('token', item.token);
         this.dialogRef.close(true);
+        this.router.navigate(['/home']);
       }, error => {
         this.spinner.hide();
         this.validator[error.error.field] = error.error.message;
