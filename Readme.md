@@ -13,16 +13,16 @@
 
 <h2>Project Info</h2>
 
-<h4>FRONTEND</h4>
+<h3>FRONTEND</h3>
 <p>Angular Version: 7.3.10</p>
 
-<h4>BACKEND</h4>
+<h3>BACKEND</h3>
 <p>Laravel Version: 7.11.0</p>
 
-<h5>SEEDER: ADD USER</h5>
+<h4>SEEDER: ADD USER</h4>
     <code>php artisan db:seed --class=UserSeeder </code>
 
-<h5>SEEDER: ADD VIEWER</h5>
+<h4>SEEDER: ADD VIEWER</h4>
     <code>php artisan db:seed --class=ReviewerSeeder</code>
 
 <h4>DATABASE</h4>
