@@ -27,8 +27,7 @@
 
 <h5>EndPoints</h5>
     <p>web:</p>
-        <p><code>/login (POST) </code></p>
-        <p><code> Input: email </code>
+        <p><code>/login (POST) Input: email </code>
         <code> Output: token </code></p>
         [/getReviews] GET
             (*Input: none*)
