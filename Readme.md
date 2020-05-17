@@ -1,5 +1,5 @@
 
-<h2>Happiness Reviewer</h2>
+<h1>Happiness Reviewer</h1>
 <p>Review your colleague.</p>
 
 <h2>Getting Started</h2>
