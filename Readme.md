@@ -8,7 +8,7 @@
 
 <p>App path: http://127.0.0.1:8000</p>
 
-<h2>Authors</h2>
+<h2>Author</h2>
 <p>Francesco D'Elia</p>
 
 <h2>Project Info</h2>
@@ -16,19 +16,16 @@
 <h4>FRONTEND</h4>
 <p>Angular Version: 7.3.10</p>
 
-============== BACKEND ==============
-Laravel Version: 7.11.0
+<h4>BACKEND</h4>
+<p>Laravel Version: 7.11.0</p>
 
-Add User with UserSeeder
-    Command: php artisan db:seed --class=UserSeeder
-    Input: Enter User name: (*Input*)
+<h5>Add User with UserSeeder</h5>
+    <code>php artisan db:seed --class=UserSeeder </code>
 
-Add Review
-    php artisan db:seed --class=ReviewerSeeder
-    Enter User id: (*Input with user id FK*)
-    Enter Date format: Y-m-d (*Input Review Date*)
+<h5>Add Review</h5>
+    <code>php artisan db:seed --class=ReviewerSeeder</code>
 
-EndPoints:
+<h5>EndPoints</h5>
     web:
         [/login] POST
             (*Input: email*)
