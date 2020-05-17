@@ -25,31 +25,7 @@
 <h5>SEEDER: ADD VIEWER</h5>
     <code>php artisan db:seed --class=ReviewerSeeder</code>
 
-<h5>EndPoints</h5>
-    <p>web:</p>
-        <p><code>/login (POST) Input: email </code>
-        <code> Output: token </code></p>
-        [/getReviews] GET
-            (*Input: none*)
-            (*Output: Reviewes List*)
-    api:
-        [/getUsers] GET
-            (*Input: none*)
-            (*Output: Users List to Review*)
-        [/searchReviews/{userId}] GET
-            (*Input: userId*)
-            (*Output: Reviews Associated with the User*) 
-        [/rankedList] GET
-            (*Input: none*)
-            (*Output: Ranked List*) 
-        [/getDataToChart] GET
-            (*Input: none*)
-            (*Output: Average of Ratings for the Chart*)         
-        [/addReview] POST
-            (*Input: (idUser: number, review: string, rating: number)*)
-            (*Output: none*) 
-
-============== DATABASE ==============
+<h4>DATABASE</h4>
 The DB dump is located in the DB folder.
 
 There is some initial data.
