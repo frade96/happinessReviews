@@ -6,7 +6,7 @@
 <p>To start the app, go to the "Backend" folder and run the following command: </p>
     <code>php artisan serve</code>
 
-<code>App path: http://127.0.0.1:8000</code>
+<p>After the project starts, go to http://127.0.0.1:8000 </p>
 
 <h2>Author</h2>
 <p>Francesco D'Elia</p>
