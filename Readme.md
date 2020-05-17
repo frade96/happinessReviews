@@ -11,7 +11,7 @@
 <h2>Author</h2>
 <p>Francesco D'Elia</p>
 
-<h2>Project Info</h2>
+<h2>PROJECT INFO</h2>
 
 <h3>FRONTEND</h3>
 <p>Angular Version: 7.3.10</p>
