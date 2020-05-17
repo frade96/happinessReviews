@@ -73,7 +73,7 @@ export class ViewerComponent implements OnInit {
       this.spinner.show();
       this.viewService.saveReview(reviewRequest).subscribe(item => {
         this.spinner.hide();
-        this.configService.showSnackBar("Salvataggio avvenuto correttamente");
+        this.configService.showSnackBar("Grazie per aver votato!");
         this.router.navigate(['/home']);
       }, error => {
         this.spinner.hide();

@@ -7,7 +7,7 @@ export class RegularExpressionUtils  {
     }
 
     public static isText(text: string) {
-        let reg = "^[A-Za-z è]*$";
+        let reg = "^[A-Za-z è.,]*$";
         let regExp = new RegExp(reg);
         return regExp.test(text);
     }

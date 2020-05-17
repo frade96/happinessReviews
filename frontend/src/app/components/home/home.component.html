@@ -44,7 +44,7 @@
         <mat-card-actions>
         </mat-card-actions>
       </mat-card>
-      <mat-paginator style="margin-top: -20px;" *ngIf="reviewsOption.length > 0" (page)="paginator($event)" [length]="reviewsOption.length" pageSize="3">
+      <mat-paginator style="margin-top: -20px; width: 77% !important;" ngStyle.lt-md="width: 100%" *ngIf="reviewsOption.length > 0" (page)="paginator($event)" [length]="reviewsOption.length" pageSize="3">
       </mat-paginator>
     </div>
   </div>
