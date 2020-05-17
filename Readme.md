@@ -19,17 +19,18 @@
 <h4>BACKEND</h4>
 <p>Laravel Version: 7.11.0</p>
 
-<h5>Add User with UserSeeder</h5>
+<h5>SEEDER: ADD USER</h5>
     <code>php artisan db:seed --class=UserSeeder </code>
 
-<h5>Add Review</h5>
+<h5>SEEDER: ADD VIEWER</h5>
     <code>php artisan db:seed --class=ReviewerSeeder</code>
 
 <h5>EndPoints</h5>
-    web:
-        [/login] POST
-            (*Input: email*)
-            (*Output: token*)
+    <p>web:</p>
+        <code>/login POST
+            Input: email
+            Output: token
+        </code>
         [/getReviews] GET
             (*Input: none*)
             (*Output: Reviewes List*)
