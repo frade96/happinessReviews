@@ -73,7 +73,6 @@ export class ChartsComponent implements OnInit {
   }
 
   paginator(event) {
-    
     this.rankedListToShow = this.rankedList.slice(3 * event.pageIndex, 3 * event.pageIndex + 3);
   }
 

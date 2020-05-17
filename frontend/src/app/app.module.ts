@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -19,9 +19,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ChartsComponent } from './components/charts/charts.component';
 import { ChartsModule, SparklineModule } from '@progress/kendo-angular-charts';
 import 'hammerjs';
-
-
-
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -56,10 +55,12 @@ import 'hammerjs';
     BrowserModule,
     BrowserAnimationsModule,
     SparklineModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    RouterModule.forRoot(routes, { useHash: false })
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true },
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   entryComponents: [
     DialogLoginComponent

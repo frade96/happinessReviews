@@ -25,12 +25,18 @@ class ReviewController extends Controller
     }
 
     public function searchReviews($id) {
+        if ($id == null)
+            return response()->json([
+                'message' => 'Id null'
+            ], 500);
+
         return Review::where('user_id', '=', $id)->orderBy('rating', 'desc')->get();
     }
 
     public function rankedList() {
         $users = User::get();
         $rankedList = array();
+
         foreach($users as $user) {
             $ratingAvg = Review::where('user_id', $user->id)->avg('rating');
             $ranked = new RankedList();
