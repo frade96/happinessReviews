@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   name: string = '';
   email: string = '';
   reviewsOption: Array<Review> = [];
+  reviewsOptions: Array<Review> = [];
   selectedUser: User = new User();
   stars: Array<object> = [
     {id: 1, notColored: 'star_border', colored: 'star'},
@@ -53,10 +54,15 @@ export class HomeComponent implements OnInit {
     this.viewService.searchViews(event.value.id).subscribe(item => {
       this.spinner.hide();
       this.reviewsOption = item;
+      this.reviewsOptions = this.reviewsOption.slice(0,3);
     }, error => {
       this.spinner.hide();
       this.configService.showSnackBar(error.error.message);
     })
+  }
+
+  paginator(event) {
+    this.reviewsOptions = this.reviewsOption.slice(3 * event.pageIndex, 3 * event.pageIndex + 3);
   }
 
 }

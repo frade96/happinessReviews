@@ -1,7 +1,7 @@
 <mat-toolbar color="secondary">
 
-  <mat-toolbar-row>
-    <span class="primary">Happiness Reviews</span>
+  <mat-toolbar-row style="text-align: center !important;">
+    <span class="primary" ngStyle.xs="display: none">Happiness Reviews</span>
     <span class="example-spacer"></span>
     <section *ngIf="!isLogged">
       <button mat-button color="primary" class="header_button" (click)="openLogin()">Login</button>
@@ -10,7 +10,7 @@
       <button mat-button color="primary" class="header_button" (click)="goToHome()">Reviews List</button>
       <button mat-button color="primary" class="header_button" (click)="goToReviewer()">Rewiew</button>
       <button mat-button color="primary" class="header_button" (click)="goToCharts()">Statistics</button>
-      <button mat-button color="primary" class="header_button" (click)="openLogin()">Thank You</button>
+      <button mat-button color="primary" class="header_button" >Thank You</button>
       <button mat-button color="primary" class="header_button" (click)="logout()">Logout</button>
     </section>
   </mat-toolbar-row>

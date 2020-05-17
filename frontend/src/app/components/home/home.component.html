@@ -3,7 +3,7 @@
     <h1 style="text-shadow: 2px 1px #673ab7; 
     font-size: 50px;">Reviews List</h1>
   </div>
-  <div fxLayout="row" class="ma-top-30 pa-50">
+  <div fxLayout="row" fxLayout.lt-md="column" class="ma-top-30 pa-50">
     <div fxFlex="30">
       <div class="mat-elevation-z10 user-filters">
         <div class="filter-title ta-center">
@@ -22,11 +22,11 @@
       </div>
     </div>
     <div fxFlex="60" fxFlexOffset="10">
-      <mat-card class="example-card ma-bottom-50 card" *ngFor="let review of reviewsOption">
+      <mat-card class="example-card ma-bottom-50 card" ngClass.lt-md="card-md" *ngFor="let review of reviewsOptions">
         <mat-card-header fxLayout="column">
           <mat-card-title fxLayout="row">
             <div fxFlex="40">{{ selectedUser.name }}</div>
-            <div fxFlex="25" fxFlexOffset="35">
+            <div fxFlex="25" fxFlexOffset="35" fxFlex.lt-xl="50" fxFlex.md="50" fxFlexOffset.md="30">
               <div class="ta-left">
                 <mat-icon *ngFor="let star of stars; let i = index" class="rew-stars star-colored">
                   {{ i+1 <= review.rating ? star.colored : star.notColored }}
@@ -44,5 +44,7 @@
         <mat-card-actions>
         </mat-card-actions>
       </mat-card>
+      <mat-paginator style="margin-top: -20px;" *ngIf="reviewsOption.length > 0" (page)="paginator($event)" [length]="reviewsOption.length" pageSize="3">
+      </mat-paginator>
     </div>
   </div>

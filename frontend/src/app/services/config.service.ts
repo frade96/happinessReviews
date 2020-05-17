@@ -9,8 +9,10 @@ export class ConfigService {
   constructor(private snackBar: MatSnackBar) { }
 
   public showSnackBar(label: string) {
+    
     this.snackBar.open(label, '', {
       duration: 2000,
+      panelClass: 'snack-bar'
     });
   }
 }

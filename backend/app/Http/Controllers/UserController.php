@@ -17,6 +17,11 @@ class UserController extends Controller
     }
 
     public function login(Request $req) {
+
+        $req->validate([
+            'email' => 'required'
+        ]);
+
         $user = User::where('email', $req->email)->first();
 
         if ($user == null)

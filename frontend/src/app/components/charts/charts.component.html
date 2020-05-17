@@ -3,8 +3,8 @@
   font-size: 50px;">Statistics</h1>
 </div>
 
-<div fxLayout="row" class="ma-top-50 ma-bottom-50">
-    <div fxFlex="30" fxFlexOffset="2" class="mat-elevation-z10" style="padding: 50px">
+<div fxLayout="row" class="ma-top-50 ma-bottom-50" fxLayout.lt-lg="column">
+    <div fxFlex="30" fxFlexOffset="2" class="mat-elevation-z10" style="padding: 50px" ngStyle.lt-lg="width: 80%; margin: 0 auto">
         <div class="list-title">
             <h1>Ranked List</h1>
         </div>
@@ -14,7 +14,7 @@
               <div fxFlex="40">
                   {{ rank.name }}
                 </div>
-              <div fxFlex="50" fxFlexOffset="10">
+              <div fxFlex="50" fxFlexOffset="10" fxFlexOffset.lt-md="8" fxFlex.lt-md="60">
                 <div class="ta-left">
                     <mat-icon *ngFor="let star of stars; let i = index" class="rew-stars star-colored">
                         {{ i+1 <= rank.rating ? star.colored : star.notColored }}
@@ -28,7 +28,7 @@
         <mat-paginator (page)="paginator($event)" [length]="rankedList.length" pageSize="3">
         </mat-paginator>
       </div>
-      <div fxFlex="64" fxFlexOffset="2" class="mat-elevation-z10" style="padding: 50px">
+      <div fxFlex="64" fxFlexOffset="2" class="mat-elevation-z10" style="padding: 50px" ngStyle.lt-lg="width: 80%; margin: 20px auto">
         <div class="list-title">
             <h1>Rating Chart</h1>
         </div>
