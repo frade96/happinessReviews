@@ -1,8 +1,20 @@
-<h1>To start the app, go to the "Backend" folder and run the following command:  (*php artisan serve*)
-App path: (*http://127.0.0.1:8000*) </h1>
 
-============== FRONTEND ==============
-Angular Version: 7.3.10
+<h2>Happiness Reviewer</h2>
+<p>Review your colleague.</p>
+
+<h2>Getting Started</h2?
+<p>To start the app, go to the "Backend" folder and run the following command: </p>
+    <code>php artisan serve</code>
+
+<p>App path: http://127.0.0.1:8000</p>
+
+<h2>Authors</h2>
+<p>Francesco D'Elia</p>
+
+<h2>Project Info</h2>
+
+<h4>FRONTEND</h4>
+<p>Angular Version: 7.3.10</p>
 
 ============== BACKEND ==============
 Laravel Version: 7.11.0
@@ -45,3 +57,4 @@ EndPoints:
 The DB dump is located in the DB folder.
 
 There is some initial data.
+
