@@ -2,7 +2,7 @@
 <h2>Happiness Reviewer</h2>
 <p>Review your colleague.</p>
 
-<h2>Getting Started</h2?
+<h2>Getting Started</h2>
 <p>To start the app, go to the "Backend" folder and run the following command: </p>
     <code>php artisan serve</code>
 
